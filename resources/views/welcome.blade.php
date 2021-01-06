@@ -85,8 +85,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="login/github">GitHub</a>
+                    {{-- <a href="login/github">GitHub</a> --}}
+                    <a href="{{ route('social.auth', ['provider' => 'github'])}}">GitHub</a>
+                    <a href="{{ route('social.auth', ['provider' => 'facebook'])}}">FaceBook</a>
                 </div>
             </div>
         </div>
