@@ -33,3 +33,7 @@ Route::get('login/{provider}/callback', [
     'uses'=> 'SocialsController@handleProviderCallback',
     'as' => 'social.callback'
 ]);
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::resource('channels', 'ChannelsController');
+});
