@@ -27,13 +27,13 @@
                             @foreach ($channels as $channel)
                                 <tr>
                                     <td>
-                                        {{$channel->name}}
+                                        {{$channel->title}}
                                     </td>
                                     <td>
-                                        <a href="{{route('channels.edit', ['channel' => $channel->id])}}" class="btn btn-sm btn-primary">EDIT</a>
+                                        <a href="{{route('channels.edit', ['channel' => $channel->id])}}" class="btn btn-sm btn-secondary">Edit</a>
                                     </td>
                                     <td>
-                                        <a href="{{route('channels.destroy', ['channel' => $channel->id])}}" class="btn btn-sm btn-danger">DESTROY</a>
+                                        <a href="{{route('channels.destroy', ['channel' => $channel->id])}}" class="btn btn-sm btn-danger">Destroy</a>
                                     </td>
                                 </tr>
                             @endforeach
