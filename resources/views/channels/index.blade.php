@@ -33,7 +33,11 @@
                                         <a href="{{route('channels.edit', ['channel' => $channel->id])}}" class="btn btn-sm btn-secondary">Edit</a>
                                     </td>
                                     <td>
-                                        <a href="{{route('channels.destroy', ['channel' => $channel->id])}}" class="btn btn-sm btn-danger">Destroy</a>
+                                        <form action="{{route('channels.destroy', ['channel'=> $channel->id])}}" method="POST">
+                                            {{ csrf_field() }}
+                                            {{method_field('DELETE')}}
+                                            <button class="btn btn-sm btn-danger" type="submit">Destroy</a>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

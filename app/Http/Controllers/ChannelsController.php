@@ -68,7 +68,7 @@ class ChannelsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('channels.edit')->with('channel', Channel::find($id));
     }
 
     /**
@@ -80,7 +80,14 @@ class ChannelsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $channel = Channel::find($id);
+
+        $channel->title = $request->channel;
+        $channel->save();
+
+        Session::flash('success', 'Channel edited successfully.');
+
+        return redirect()->route('channels.index');
     }
 
     /**
@@ -91,6 +98,10 @@ class ChannelsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Channel::destroy($id);
+
+        Session::flash('success', 'Channel Deleted');
+
+        return redirect()->route('channels.index');
     }
 }
