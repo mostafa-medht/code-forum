@@ -72,8 +72,28 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="container py-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-default">
+                        <div class="card-header">
+                            Channels
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                @foreach ($channels as $channel)
+                                    <li class="list-group-item">
+                                        {{$channel->title}}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    @yield('content')
+                </div>
+            </div>
         </main>
     </div>
 </body>
