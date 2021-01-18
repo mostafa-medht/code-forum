@@ -2,16 +2,30 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header">{{ __('Dashboard') }}</div>
+        <div class="card-header text-center">Create a new discussion</div>
 
         <div class="card-body">
-            @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
+            <form action="{{route('discussions.store')}}" method="POST">
+                {{ csrf_field() }}
 
-            {{ __('You are logged in!') }}
-        </div>
+                <div class="form-group">
+                    <label for="channel_id"> Pick a channel</label>
+                    <select name="channel_id" id="channel_id" class="form-control">
+                        @foreach ($channels as $channel)
+                            <option value="{{$channel->id}}">{{$channel->title}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="content">Ask a Question</label>
+                    <textarea name="content" id="content" cols="30" rows="10" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit">
+                        Create disccussion                        
+                    </button>
+                </div>
+            </form>
+        </div>    
     </div>
 @endsection

@@ -75,6 +75,9 @@
         <main class="container py-4">
             <div class="row">
                 <div class="col-md-4">
+
+                    <a href="{{route('discussions.create')}}" class="form-control mb-3 btn btn-primary">Create a new discussion</a>
+                    
                     <div class="card card-default">
                         <div class="card-header">
                             Channels
